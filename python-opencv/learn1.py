@@ -5,10 +5,11 @@ import cv2 as cv
 
 capture = cv.VideoCapture("D:\mystudy\pythonOCR\python-opencv\Videos\eh.mp4")
 while True:
-    isTrue , frame = capture.read()
-    cv.imshow("Video",frame)
-    if cv.waitKey(20) & 0xFF == "d":
+    isTrue, frame = capture.read()
+    if not isTrue:
         break
-
+    cv.imshow("Video", frame)
+    if cv.waitKey(1) & 0xFF == ord('d'):
+        break
 capture.release()
 cv.destroyAllWindows() 
